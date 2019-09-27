@@ -11,10 +11,8 @@ public class Player {
                 return HandShape.ROCK;
             case 1:
                 return HandShape.SCISSORS;
-            case 2:
-                return HandShape.PAPER;
             default:
-                return HandShape.ROCK;
+                return HandShape.PAPER;
         }
     }
 }

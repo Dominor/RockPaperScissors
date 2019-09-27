@@ -33,10 +33,9 @@ public enum HandShape {
             case 0:
                 return "Rock";
             case 1:
-                return "Paper";
-            case 2:
                 return "Scissors";
+            default:
+                return "Paper";
         }
-        return "Rock";
     }
 }
