@@ -1,41 +1,19 @@
 package org.academiadecodigo.bootcamp36.rockpaperscissors;
 
 public enum HandShape {
-    ROCK(0),
-    PAPER(1),
-    SCISSORS(2);
+    ROCK,
+    SCISSORS,
+    PAPER;
 
-    private int code;
-
-    HandShape(int code) {
-        this.code = code;
-    }
-
-    boolean beats(HandShape shape) {
-        if (this.code == 0 && shape.code == 1) {
-            return true;
-        }
-        if (this.code == 1 && shape.code == 2) {
-            return true;
-        }
-        if (this.code == 2 && shape.code == 0) {
-            return true;
-        }
-        return false;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public String getName() {
-        switch (this.code) {
-            case 0:
+    @Override
+    public String toString() {
+        switch (this) {
+            case ROCK:
                 return "Rock";
-            case 1:
-                return "Scissors";
-            default:
+            case PAPER:
                 return "Paper";
+            default:
+                return "Scissors";
         }
     }
 }
