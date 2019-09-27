@@ -26,7 +26,7 @@ public class RockPaperScissors {
             System.out.println("Player 1 picked " + player1Pick + ". Player 2 picked " + player2Pick);
             if (player1Pick == player2Pick) {
                 System.out.println("Tie!");
-            } else if (this.beats(player1Pick, player2Pick)) {
+            } else if (beats(player1Pick, player2Pick)) {
                 System.out.println("Player 1 won this turn!");
                 numberWinsPlayer1++;
             } else {
