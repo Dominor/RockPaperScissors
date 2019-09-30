@@ -2,9 +2,9 @@ package org.academiadecodigo.bootcamp36.rockpaperscissors;
 
 public class RockPaperScissors {
 
-    Player player1;
-    Player player2;
-    int maxNumberOfRounds;
+    private Player player1;
+    private Player player2;
+    private int maxNumberOfRounds;
 
     RockPaperScissors(Player player1, Player player2, int maxNumberOfRounds) {
 
