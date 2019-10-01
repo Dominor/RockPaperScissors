@@ -13,41 +13,56 @@ public class RockPaperScissors {
         this.maxNumberOfRounds = maxNumberOfRounds;
     }
 
-    public void run() {
-
-        int numberWinsPlayer1 = 0, numberWinsPlayer2 = 0;
-
-        for (int i = 1; i <= maxNumberOfRounds; i++) {
-
-            System.out.println("");
-            System.out.println("----- Round " + i + " ------");
-            HandShape player1Pick = player1.pick();
-            HandShape player2Pick = player2.pick();
-            System.out.println("Player 1 picked " + player1Pick + ". Player 2 picked " + player2Pick);
-            if (player1Pick == player2Pick) {
-                System.out.println("Tie!");
-            } else if (beats(player1Pick, player2Pick)) {
-                System.out.println("Player 1 won this turn!");
-                numberWinsPlayer1++;
-            } else {
-                System.out.println("Player 2 won this turn!");
-                numberWinsPlayer2++;
-            }
-        }
-
+    /**
+     * Plays a round
+     */
+    private void playRound() {
         System.out.println("");
-        System.out.println("Player 1 Wins: " + numberWinsPlayer1 + ", " + "Player 2 Wins: " + numberWinsPlayer2);
+        System.out.println("----- Round " + i + " ------");
+        HandShape player1Pick = player1.pick();
+        HandShape player2Pick = player2.pick();
+        System.out.println("Player 1 picked " + player1Pick + ". Player 2 picked " + player2Pick);
+        if (player1Pick == player2Pick) {
+            System.out.println("Tie!");
+            return;
+        }
+        if (beats(player1Pick, player2Pick)) {
+            System.out.println("Player 1 won this turn!");
+            player1.win();
+            return;
+        }
+        System.out.println("Player 2 won this turn!");
+        player2.win();
+    }
+
+    private void displayResults() {
+        System.out.println("");
+        System.out.println("Player 1 Wins: " + player1.getVictories() + "\n" + "Player 2 Wins: " + player2.getVictories());
         System.out.println("");
         System.out.println("Game Over");
-        if (numberWinsPlayer1 > numberWinsPlayer2) {
+        if (player1.getVictories() > player2.getVictories()) {
             System.out.println("Player 1 won");
             return;
         }
-        if (numberWinsPlayer2 > numberWinsPlayer1) {
+        if (player2.getVictories() > player1.getVictories()) {
             System.out.println("Player 2 won");
             return;
         }
         System.out.println("Overall Tie");
+    }
+
+    /*
+     * Starts the game
+     */
+
+    public void run() {
+
+        for (int i = 1; i <= maxNumberOfRounds; i++) {
+
+            playRound();
+
+        }
+        displayResults();
     }
 
     private boolean beats(HandShape shape1, HandShape shape2) {
