@@ -16,7 +16,7 @@ public class RockPaperScissors {
     /**
      * Plays a round
      */
-    private void playRound() {
+    private void playRound(int i) {
         System.out.println("");
         System.out.println("----- Round " + i + " ------");
         HandShape player1Pick = player1.pick();
@@ -59,7 +59,7 @@ public class RockPaperScissors {
 
         for (int i = 1; i <= maxNumberOfRounds; i++) {
 
-            playRound();
+            playRound(i);
 
         }
         displayResults();
